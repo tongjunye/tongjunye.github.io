@@ -108,7 +108,12 @@
       .screenshots {
         display: grid;
         gap: 16px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 760px) {
+        .screenshots {
+          grid-template-columns: repeat(3, 1fr);
+        }
       }
       .screenshots img {
         width: 100%;
@@ -117,6 +122,15 @@
         border: 1px solid var(--border);
         background: var(--card);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .screenshots video {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        grid-column: 1 / -1;
       }
       footer {
         margin-top: 64px;
@@ -158,15 +172,16 @@
             Log entries in seconds, review patterns weekly, and improve your
             discipline one session at a time.
           </p>
-          <a class="cta" href="#" aria-label="Get the app">
-            Get on the App Store
-          </a>
         </div>
 
         <div class="screenshots">
           <img src="Home.png" alt="Trading Log home screen" />
           <img src="Note.png" alt="Trade notes entry screen" />
           <img src="Graph.png" alt="Performance graph screen" />
+          <video controls playsinline preload="metadata" poster="Home.png">
+            <source src="demo.mp4" type="video/mp4" />
+            Sorry, your browser doesn’t support embedded video.
+          </video>
         </div>
       </section>
 
