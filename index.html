@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trading Log for iOS</title>
+    <meta
+      name="description"
+      content="A simple iOS trading log app to track trades, capture insights, and build better habits."
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f1115;
+        --card: #171a21;
+        --text: #e8edf2;
+        --muted: #9aa4b2;
+        --accent: #5b9dff;
+        --border: rgba(255, 255, 255, 0.08);
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f6f7fb;
+          --card: #ffffff;
+          --text: #101418;
+          --muted: #5b6472;
+          --accent: #2459f0;
+          --border: rgba(16, 20, 24, 0.08);
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 48px 24px 72px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .logo {
+        font-weight: 700;
+        letter-spacing: 0.4px;
+      }
+      .hero {
+        margin-top: 64px;
+        display: grid;
+        gap: 32px;
+      }
+      .hero-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+      }
+      h1 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        margin: 0 0 16px;
+      }
+      p {
+        line-height: 1.6;
+        margin: 0 0 16px;
+        color: var(--muted);
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--accent);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        border: none;
+      }
+      .features {
+        margin-top: 56px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .feature {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .feature h3 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+      .mock {
+        border-radius: 16px;
+        border: 1px dashed var(--border);
+        padding: 28px;
+        text-align: center;
+        color: var(--muted);
+        background: rgba(0, 0, 0, 0.08);
+      }
+      footer {
+        margin-top: 64px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(91, 157, 255, 0.12);
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">Trading Log</div>
+        <span class="tag">iOS App</span>
+      </header>
+
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Track trades. Learn faster. Stay consistent.</h1>
+          <p>
+            Trading Log is a simple iOS app for capturing your trades, tagging
+            setups, and reviewing performance in seconds. Built to keep your
+            process clean without the spreadsheet headache.
+          </p>
+          <p>
+            Log entries in seconds, review patterns weekly, and improve your
+            discipline one session at a time.
+          </p>
+          <a class="cta" href="#" aria-label="Get the app">
+            Get on the App Store
+          </a>
+        </div>
+
+        <div class="mock">
+          Add a screenshot or short demo GIF here.
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <h3>Quick entries</h3>
+          <p>Save date, symbol, size, and notes with a clean form.</p>
+        </div>
+        <div class="feature">
+          <h3>Tag every setup</h3>
+          <p>Label trades by strategy to see what really works.</p>
+        </div>
+        <div class="feature">
+          <h3>Review summaries</h3>
+          <p>Spot win-rate trends and recurring mistakes in minutes.</p>
+        </div>
+        <div class="feature">
+          <h3>Private by design</h3>
+          <p>Everything stays on your device unless you export it.</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>Built by Tong Junye</span>
+        <span>Contact: youremail@example.com</span>
+      </footer>
+    </div>
+  </body>
+</html>
