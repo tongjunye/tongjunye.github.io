@@ -105,13 +105,18 @@
         margin: 0 0 10px;
         font-size: 1.1rem;
       }
-      .mock {
+      .screenshots {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .screenshots img {
+        width: 100%;
+        height: auto;
         border-radius: 16px;
-        border: 1px dashed var(--border);
-        padding: 28px;
-        text-align: center;
-        color: var(--muted);
-        background: rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border);
+        background: var(--card);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       }
       footer {
         margin-top: 64px;
@@ -158,8 +163,10 @@
           </a>
         </div>
 
-        <div class="mock">
-          Add a screenshot or short demo GIF here.
+        <div class="screenshots">
+          <img src="Home.png" alt="Trading Log home screen" />
+          <img src="Note.png" alt="Trade notes entry screen" />
+          <img src="Graph.png" alt="Performance graph screen" />
         </div>
       </section>
 
@@ -184,7 +191,7 @@
 
       <footer>
         <span>Built by Tong Junye</span>
-        <span>Contact: youremail@example.com</span>
+        <span>Contact: thomasjune002@gmail.com</span>
       </footer>
     </div>
   </body>
