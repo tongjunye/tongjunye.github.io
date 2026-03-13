@@ -125,12 +125,15 @@
       }
       .screenshots video {
         width: 100%;
+        aspect-ratio: 9 / 16;
         height: auto;
+        max-height: 720px;
         border-radius: 16px;
         border: 1px solid var(--border);
         background: var(--card);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         grid-column: 1 / -1;
+        object-fit: contain;
       }
       footer {
         margin-top: 64px;
@@ -178,12 +181,56 @@
           <img src="Home.png" alt="Trading Log home screen" />
           <img src="Note.png" alt="Trade notes entry screen" />
           <img src="Graph.png" alt="Performance graph screen" />
-          <video controls playsinline preload="metadata" poster="Home.png">
+          <video id="demoVideo" controls playsinline preload="metadata">
             <source src="demo.mp4" type="video/mp4" />
             Sorry, your browser doesn’t support embedded video.
           </video>
         </div>
       </section>
+      <script>
+        (() => {
+          const video = document.getElementById("demoVideo");
+          if (!video) return;
+
+          const captureFirstFrameAsPoster = async () => {
+            try {
+              if (!video.videoWidth || !video.videoHeight) return;
+
+              // Seek a tiny amount in to ensure a decodable frame.
+              const targetTime = Math.min(0.01, video.duration || 0.01);
+              if (Number.isFinite(targetTime)) video.currentTime = targetTime;
+
+              await new Promise((resolve) => {
+                const onSeeked = () => {
+                  video.removeEventListener("seeked", onSeeked);
+                  resolve();
+                };
+                video.addEventListener("seeked", onSeeked, { once: true });
+              });
+
+              const canvas = document.createElement("canvas");
+              canvas.width = video.videoWidth;
+              canvas.height = video.videoHeight;
+              const ctx = canvas.getContext("2d");
+              if (!ctx) return;
+
+              ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+              video.setAttribute("poster", canvas.toDataURL("image/jpeg", 0.85));
+
+              // Reset to start so cover looks like the first frame.
+              video.currentTime = 0;
+              video.pause();
+            } catch {
+              // If anything fails (browser restrictions), fall back to default behavior.
+            }
+          };
+
+          // Once we have enough data to know dimensions, capture.
+          video.addEventListener("loadeddata", captureFirstFrameAsPoster, {
+            once: true,
+          });
+        })();
+      </script>
 
       <section class="features">
         <div class="feature">
